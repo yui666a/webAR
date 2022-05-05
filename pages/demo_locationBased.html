@@ -9,6 +9,9 @@
   </head>
 
   <body style="margin: 0; overflow: hidden">
+    <div id="debug"></div>
+
+
     <!-- <a-assets> -->
     <!-- <a-asset-item id="vroid_glb" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/ar.js_3.0_test/main/obj/v1.glb"></a-asset-item> -->
     <!-- <a-asset-item id="vroid" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/ar.js_3.0_test/main/obj/v1_2/v1_2.gltf"></a-asset-item>
@@ -35,22 +38,31 @@
 
       <a-box
         material="color: red"
+        id="box"
         gps-entity-place="latitude: 35.710726169249924; longitude: 139.9539991104342;"
         scale="5 5 5"
       ></a-box>
 
-
-      <!-- <a-text
-      value="BaMa Nagaoka."
-      look-at="[gps-camera]"
-      scale="50 50 50"
-      gps-entity-place="latitude: 37.448091091468704; longitude: 138.8511813858752;"
-    ></a-text> -->
       <!-- <a-entity gltf-model="#vroid_glb"
       position="0 0 0" rotation="0 180 0" scale="100 100 100"
       gps-entity-place="latitude: 37.440822766870745; longitude: 138.80846050895326;"></a-entity>
       -->
-      <a-camera gps-camera rotation-reader> </a-camera> 
+
+      <!-- minDistance, maxDistanceの単位はm(メートル) 
+        see: https://ar-js-org.github.io/AR.js-Docs/location-based/
+      -->
+      <a-camera gps-camera="minDistance:0; maxDistance:100" rotation-reader> </a-camera> 
     </a-scene>
+
+    <script>
+      window.addEventListener('load', () => {
+        const text = document.getElementById('box');
+        text.addEventListener('gps-entity-place-update-positon', (event) => {
+          document.getElementById('debug').textContent = `あと${event.detail.distance}m`;
+          text.setAttribute('value', text.getAttribute('distanceMsg') + ' left');
+        });
+      });
+    </script>
+
   </body>
 </html>
