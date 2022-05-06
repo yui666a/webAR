@@ -19,25 +19,25 @@
         width: 100%;
       }
     </style>
-    
   </head>
 
   <body style="margin: 0; overflow: hidden">
     <div id="debug"></div>
-
-
-    <a-assets>
-      <a-asset-item id="cake_glft" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/webAR/main/obj/cake/cake.gltf"></a-asset-item>
-    <!-- <a-asset-item id="vroid_glb" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/ar.js_3.0_test/main/obj/v1.glb"></a-asset-item> -->
-    <!-- <a-asset-item id="vroid" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/ar.js_3.0_test/main/obj/v1_2/v1_2.gltf"></a-asset-item>
-        <a-asset-item id="vita" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/ar.js_3.0_test/main/obj/Vita/Vita.gltf"></a-asset-item> -->
-    </a-assets>
 
     <a-scene
       vr-mode-ui="enabled: false"
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
+      <a-assets>
+        <a-asset-item
+          id="cake_glft"
+          src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/webAR/main/obj/cake/cake.gltf"
+        ></a-asset-item>
+        <!-- <a-asset-item id="vroid_glb" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/ar.js_3.0_test/main/obj/v1.glb"></a-asset-item> -->
+        <!-- <a-asset-item id="vroid" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/ar.js_3.0_test/main/obj/v1_2/v1_2.gltf"></a-asset-item>
+        <a-asset-item id="vita" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/ar.js_3.0_test/main/obj/Vita/Vita.gltf"></a-asset-item> -->
+      </a-assets>
       <a-text
         value="Nagaoka city office"
         look-at="[gps-camera]"
@@ -52,7 +52,6 @@
         gps-entity-place="latitude: 37.44704223107144; longitude: 138.8512873349762;"
         scale="5 5 5"
       ></a-box>
-
 
       <a-text
         value="PL funabashi."
@@ -70,29 +69,36 @@
         position="0 5 -3"
       ></a-box> -->
 
-      <a-entity gltf-model="#cake_glft"
-      position="0 0 0"
-      rotation="0 0 0"
-      scale="1 1 1"
-      gps-entity-place="latitude: 35.710726169249924; longitude: 139.9539991104342;">
-    </a-entity>
+      <a-entity
+        gltf-model="#cake_glft"
+        position="0 0 0"
+        rotation="0 0 0"
+        scale="1 1 1"
+        gps-entity-place="latitude: 35.710726169249924; longitude: 139.9539991104342;"
+      >
+      </a-entity>
 
       <!-- minDistance, maxDistanceの単位はm(メートル) 
         see: https://ar-js-org.github.io/AR.js-Docs/location-based/
       -->
-      <a-camera gps-camera="minDistance:0; maxDistance:300" rotation-reader> </a-camera> 
+      <a-camera gps-camera="minDistance:0; maxDistance:300" rotation-reader>
+      </a-camera>
     </a-scene>
 
     <script>
-      window.addEventListener('load', () => {
-        const text = document.getElementById('box-pl-funabashi');
-        text.addEventListener('gps-entity-place-update-positon', (event) => {
+      window.addEventListener("load", () => {
+        const text = document.getElementById("box-pl-funabashi");
+        text.addEventListener("gps-entity-place-update-positon", (event) => {
           console.log(`あと${event.detail.distance}m`);
-          document.getElementById('debug').textContent = `あと${event.detail.distance}m`;
-          text.setAttribute('value', text.getAttribute('distanceMsg') + ' left');
+          document.getElementById(
+            "debug"
+          ).textContent = `あと${event.detail.distance}m`;
+          text.setAttribute(
+            "value",
+            text.getAttribute("distanceMsg") + " left"
+          );
         });
       });
     </script>
-
   </body>
 </html>
