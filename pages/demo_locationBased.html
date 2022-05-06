@@ -36,16 +36,27 @@
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
-      <!-- <a-text
-        value="location test."
+      <a-text
+        value="Nagaoka city office"
         look-at="[gps-camera]"
-        scale="50 50 50"
-        gps-entity-place="latitude: 37.440822766870745; longitude: 138.80846050895326;"
-      ></a-text> -->
+        scale="10 10 10"
+        position="0 8 -3"
+        gps-entity-place="latitude: 37.44704223107144; longitude: 138.8512873349762;"
+      ></a-text>
+      <a-box
+        material="color: blue"
+        id="box"
+        position="0 8 -3"
+        gps-entity-place="latitude: 37.44704223107144; longitude: 138.8512873349762;"
+        scale="5 5 5"
+      ></a-box>
+
+
       <a-text
         value="PL funabashi."
         look-at="[gps-camera]"
         scale="10 10 10"
+        position="0 5 -3"
         gps-entity-place="latitude: 35.710619452829945; longitude: 139.95396021840625;"
       ></a-text>
 
@@ -54,6 +65,7 @@
         id="box"
         gps-entity-place="latitude: 35.710726169249924; longitude: 139.9539991104342;"
         scale="5 5 5"
+        position="0 5 -3"
       ></a-box>
 
       <!-- <a-entity gltf-model="#vroid_glb"
@@ -64,7 +76,7 @@
       <!-- minDistance, maxDistanceの単位はm(メートル) 
         see: https://ar-js-org.github.io/AR.js-Docs/location-based/
       -->
-      <a-camera gps-camera="minDistance:0; maxDistance:100" rotation-reader> </a-camera> 
+      <a-camera gps-camera="minDistance:0; maxDistance:300" rotation-reader> </a-camera> 
     </a-scene>
 
     <script>
