@@ -26,11 +26,12 @@
     <div id="debug"></div>
 
 
-    <!-- <a-assets> -->
+    <a-assets>
+      <a-asset-item id="cake_glft" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/webAR/main/obj/cake/cake.gltf"></a-asset-item>
     <!-- <a-asset-item id="vroid_glb" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/ar.js_3.0_test/main/obj/v1.glb"></a-asset-item> -->
     <!-- <a-asset-item id="vroid" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/ar.js_3.0_test/main/obj/v1_2/v1_2.gltf"></a-asset-item>
         <a-asset-item id="vita" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/yui666a/ar.js_3.0_test/main/obj/Vita/Vita.gltf"></a-asset-item> -->
-    <!-- </a-assets> -->
+    </a-assets>
 
     <a-scene
       vr-mode-ui="enabled: false"
@@ -61,18 +62,20 @@
         gps-entity-place="latitude: 35.710619452829945; longitude: 139.95396021840625;"
       ></a-text>
 
-      <a-box
+      <!-- <a-box
         material="color: red"
         id="box-pl-funabashi"
         gps-entity-place="latitude: 35.710726169249924; longitude: 139.9539991104342;"
         scale="5 5 5"
         position="0 5 -3"
-      ></a-box>
+      ></a-box> -->
 
-      <!-- <a-entity gltf-model="#vroid_glb"
-      position="0 0 0" rotation="0 180 0" scale="100 100 100"
-      gps-entity-place="latitude: 37.440822766870745; longitude: 138.80846050895326;"></a-entity>
-      -->
+      <a-entity gltf-model="#cake_glft"
+      position="0 0 0"
+      rotation="0 0 0"
+      scale="1 1 1"
+      gps-entity-place="latitude: 35.710726169249924; longitude: 139.9539991104342;">
+    </a-entity>
 
       <!-- minDistance, maxDistanceの単位はm(メートル) 
         see: https://ar-js-org.github.io/AR.js-Docs/location-based/
