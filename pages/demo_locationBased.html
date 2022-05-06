@@ -16,6 +16,7 @@
         top: 0;
         left: 0;
         display: block;
+        width: 100%;
       }
     </style>
     
@@ -45,7 +46,7 @@
       ></a-text>
       <a-box
         material="color: blue"
-        id="box"
+        id="box-nagaoka-office"
         position="0 8 -3"
         gps-entity-place="latitude: 37.44704223107144; longitude: 138.8512873349762;"
         scale="5 5 5"
@@ -62,7 +63,7 @@
 
       <a-box
         material="color: red"
-        id="box"
+        id="box-pl-funabashi"
         gps-entity-place="latitude: 35.710726169249924; longitude: 139.9539991104342;"
         scale="5 5 5"
         position="0 5 -3"
@@ -81,8 +82,9 @@
 
     <script>
       window.addEventListener('load', () => {
-        const text = document.getElementById('box');
+        const text = document.getElementById('box-pl-funabashi');
         text.addEventListener('gps-entity-place-update-positon', (event) => {
+          console.log(`あと${event.detail.distance}m`);
           document.getElementById('debug').textContent = `あと${event.detail.distance}m`;
           text.setAttribute('value', text.getAttribute('distanceMsg') + ' left');
         });
