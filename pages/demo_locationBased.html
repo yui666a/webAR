@@ -120,19 +120,19 @@
     </a-scene>
 
     <script>
-      window.addEventListener("load", () => {
-        const text = document.getElementById("box-pl-funabashi");
-        text.addEventListener("gps-entity-place-update-positon", (event) => {
-          console.log(`あと${event.detail.distance}m`);
-          document.getElementById(
-            "debug"
-          ).textContent = `あと${event.detail.distance}m`;
-          text.setAttribute(
-            "value",
-            text.getAttribute("distanceMsg") + " left"
-          );
-        });
-      });
+      // window.addEventListener("load", () => {
+      //   const text = document.getElementById("box-pl-funabashi");
+      //   text.addEventListener("gps-entity-place-update-positon", (event) => {
+      //     console.log(`あと${event.detail.distance}m`);
+      //     document.getElementById(
+      //       "debug"
+      //     ).textContent = `あと${event.detail.distance}m`;
+      //     text.setAttribute(
+      //       "value",
+      //       text.getAttribute("distanceMsg") + " left"
+      //     );
+      //   });
+      // });
     </script>
   </body>
 </html>
