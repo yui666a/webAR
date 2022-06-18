@@ -54,8 +54,23 @@
         rotation="0 0 0"
         scale="10 10 10"
         gps-entity-place="latitude: 37.426489977583785; longitude: 138.7788456276233;"
-      >
-      </a-entity>
+      ></a-entity>
+
+      <!-- 自宅付近の田んぼ -->
+      <a-text
+        value="rice field"
+        look-at="[gps-camera]"
+        scale="10 10 10"
+        position="0 0 0"
+        gps-entity-place="latitude: 37.44088310262545; longitude: 138.8082065355546;"
+      ></a-text>
+      <a-entity
+        gltf-model="#cake_glft"
+        position="0 0 0"
+        rotation="0 0 0"
+        scale="10 10 10"
+        gps-entity-place="latitude: 37.44088310262545; longitude: 138.8082065355546;"
+      ></a-entity>
 
       <a-text
         value="TBC"
@@ -95,15 +110,6 @@
         position="0 5 -3"
         gps-entity-place="latitude: 35.710619452829945; longitude: 139.95396021840625;"
       ></a-text>
-
-      <!-- <a-box
-        material="color: red"
-        id="box-pl-funabashi"
-        gps-entity-place="latitude: 35.710726169249924; longitude: 139.9539991104342;"
-        scale="5 5 5"
-        position="0 5 -3"
-      ></a-box> -->
-
       <a-entity
         gltf-model="#cake_glft"
         position="0 0 0"
