@@ -10,7 +10,6 @@
 
   <body>
     <a-scene
-      physics
       embedded
       cursor="rayOrigin: mouse"
       vr-mode-ui="enabled: false;"
@@ -23,7 +22,6 @@
 
       <a-gltf-model
         id="1"
-        dynamic-body="shape: sphere; mass: 1"
         position="-2 1 -5"
         src="#model"
       >
@@ -31,7 +29,6 @@
 
       <a-plane
         id="floor"
-        static-body
         width="200"
         height="200"
         position="0 0 0"
@@ -42,20 +39,17 @@
 
       <a-box
         id="wall"
-        static-body
         scale="10 2 1"
         position="0 2 -10"
         color="#000"
       >
       </a-box>
 
-      <a-sky id="sky" color="#0000EC"> </a-sky>
 
       <a-entity
         id="player"
         camera
         universal-controls
-        kinematic-body
         position="0 1.5 0"
       >
       </a-entity>
